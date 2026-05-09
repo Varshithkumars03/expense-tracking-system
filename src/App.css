@@ -1,0 +1,103 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #f8fafc;
+  --bg-sidebar: #ffffff; 
+  --bg-card: #ffffff;
+  --text-main: #020617;
+  --border-color: #cbd5e1;
+  --income-color: #15803d;
+  --expense-color: #b91c1c;
+}
+
+.dark {
+  --bg-main: #020817; 
+  --bg-sidebar: #020817; 
+  --bg-card: #0f172a;
+  --text-main: #f8fafc;
+  --border-color: rgba(59, 130, 246, 0.2);
+  --income-color: #4ade80;
+  --expense-color: #f87171;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-left { animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade { animation: fadeIn 1s ease-out forwards; }
+.animate-scale { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  @apply transition-all duration-700 ease-in-out antialiased min-h-screen font-sans;
+}
+
+.glass-panel {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 32px;
+  width: 100%;
+  @apply shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
+}
+
+.net-capital-value { color: var(--text-main); }
+.dark .net-capital-value { color: #ffffff !important; }
+
+.ledger-table {
+  @apply border-separate w-full;
+  border-spacing: 0 20px;
+}
+
+.ledger-table thead th {
+  @apply pb-6 px-12 text-xs font-black uppercase tracking-widest text-slate-400;
+}
+
+.ledger-table tbody tr {
+  @apply transition-all duration-500 hover:scale-[1.01];
+}
+
+.ledger-table tbody td {
+  @apply py-8 px-12 bg-[var(--bg-card)] border-y-2 border-[var(--border-color)] transition-all duration-300;
+}
+
+.ledger-table tbody td:first-child { @apply rounded-l-[32px] border-l-2; }
+.ledger-table tbody td:last-child { @apply rounded-r-[32px] border-r-2; }
+
+.dark .modal-label { color: #94a3b8 !important; font-weight: 900; }
+.dark .modal-input { color: #ffffff !important; background-color: rgba(255, 255, 255, 0.05); }
+.dark .modal-title { color: #ffffff !important; }
+.dark .close-btn { color: #ffffff; background-color: rgba(255, 255, 255, 0.1); }
+
+.action-btn { @apply p-3 rounded-2xl transition-all duration-200 active:scale-90 flex items-center justify-center; }
+.edit-btn { @apply text-blue-500 bg-blue-500/10 hover:bg-blue-500 hover:text-white; }
+.delete-btn { @apply text-red-500 bg-red-500/10 hover:bg-red-500 hover:text-white; }
+
+.text-income { color: var(--income-color) !important; }
+.text-expense { color: var(--expense-color) !important; }

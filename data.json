@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1777883313536,
+    "description": "food",
+    "amount": 300,
+    "category": "Food",
+    "type": "expense",
+    "date": "2026-05-04"
+  },
+  {
+    "id": 1777481260205,
+    "description": "gift",
+    "amount": 500,
+    "category": "General",
+    "type": "income",
+    "date": "2026-04-29"
+  },
+  {
+    "id": 1777481227709,
+    "description": "food",
+    "amount": 300,
+    "category": "General",
+    "type": "expense",
+    "date": "2026-04-29"
+  }
+]
